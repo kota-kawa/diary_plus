@@ -1,0 +1,339 @@
+/* static/diaries/css/styles.css */
+
+/* ----------------------------------------
+   基本設定: フォント、色、余白など
+---------------------------------------- */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, メイリオ, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* ----------------------------------------
+   ナビゲーションバー (Bootstrap 補正)
+---------------------------------------- */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.navbar .btn {
+    margin-left: 0.5rem;
+}
+
+/* ----------------------------------------
+   コンテナ (Bootstrap の .container を拡張)
+---------------------------------------- */
+.container {
+    max-width: 960px;
+    padding: 1rem 1rem;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------
+   エントリーカード
+---------------------------------------- */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.375rem;
+    transition: box-shadow 0.2s ease-in-out;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 240px;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title a {
+    color: #343a40;
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: #0056b3;
+}
+
+/* ----------------------------------------
+   日記詳細ページの本文 (Markdown コンテンツ)
+---------------------------------------- */
+.entry-content {
+    margin-top: 1.5rem;
+}
+
+/* 見出し */
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+/* 段落 */
+.entry-content p {
+    margin-bottom: 1rem;
+}
+
+/* リスト */
+.entry-content ul,
+.entry-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* コードブロック */
+.entry-content pre {
+    background-color: #f1f1f1;
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+/* インラインコード */
+.entry-content code {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+/* 引用 */
+.entry-content blockquote {
+    border-left: 4px solid #dee2e6;
+    background-color: #f8f9fa;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+    color: #495057;
+}
+
+/* 水平線 */
+.entry-content hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 2rem 0;
+}
+
+/* 画像 */
+.entry-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
+}
+
+/* テーブル */
+.entry-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.entry-content th,
+.entry-content td {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.entry-content th {
+    background-color: #f1f3f5;
+}
+
+/* ----------------------------------------
+   タグ表示
+---------------------------------------- */
+.entry-tags {
+    margin-top: 0.5rem;
+}
+
+.entry-tags .badge {
+    background-color: #6c757d;
+    color: #ffffff;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    padding: 0.4em 0.6em;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.entry-tags .badge:hover {
+    background-color: #5a6268;
+}
+
+/* ----------------------------------------
+   いいねボタン (HTMX 部分)
+---------------------------------------- */
+#like-btn button {
+    background-color: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#like-btn button:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+/* ----------------------------------------
+   フォーム (投稿・編集用)
+---------------------------------------- */
+form {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2rem;
+}
+
+form .form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form .form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+form label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* ----------------------------------------
+   ログインページ
+---------------------------------------- */
+.login-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.login-form h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.login-form .form-control {
+    margin-bottom: 1rem;
+}
+
+/* ----------------------------------------
+   ページネーション
+---------------------------------------- */
+.pagination {
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.page-link {
+    color: #007bff;
+    border-radius: 0.25rem;
+}
+
+.page-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+}
+
+/* ----------------------------------------
+   メディアクエリ: レスポンシブ対応
+---------------------------------------- */
+/* 小さい画面 (スマホ) */
+@media (max-width: 576px) {
+    .navbar .form-control {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .navbar .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* 中くらいの画面 (タブレット) */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+/* 大きい画面 (デスクトップ) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}

@@ -1,0 +1,18 @@
+{% extends 'diaries/base.html' %}
+{% block title %}{{ object.title }} - Diary Plus{% endblock %}
+{% block content %}
+<h2>{{ object.title }}</h2>
+<p class="text-muted">{{ object.created_at|date:"Y-m-d H:i" }} 更新: {{ object.updated_at|date:"Y-m-d H:i" }}</p>
+{% if object.cover_image %}
+  <img src="{{ object.cover_image.url }}" class="img-fluid mb-3" alt="cover">
+{% endif %}
+<div>{{ object.body_html|safe }}</div>
+
+<div id="like-btn" hx-post="{% url 'entry_like' object.pk %}" hx-swap="outerHTML">
+  {% include 'diaries/tag_list_partial.html' with entry=object %}
+</div>
+
+{% if user == object.author %}
+  <a class="btn btn-sm btn-outline-secondary" href="{% url 'entry_edit' object.pk %}">Edit</a>
+{% endif %}
+{% endblock %}
