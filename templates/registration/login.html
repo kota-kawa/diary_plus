@@ -1,9 +1,11 @@
 {% extends 'diaries/base.html' %}
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button class="btn btn-primary">Login</button>
-</form>
+<div class="login-form">
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary w-100">Login</button>
+  </form>
+</div>
 {% endblock %}
