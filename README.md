@@ -11,3 +11,12 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
+```
+
+## Docker Compose での実行
+
+Docker と Docker Compose がインストールされている環境で以下を実行します。
+
+```bash
+docker compose up --build
+```
